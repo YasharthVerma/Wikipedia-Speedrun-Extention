@@ -1,0 +1,21 @@
+# Important Note, crutial for funtioning
+
+In `background.js` go to 
+```javascript 
+// Send Discord webhook
+function sendDiscordWebhook(username, clicks, article) {
+  const webhookUrl = '<your-dicrod-webhook-api>';
+  const payload = {
+    content: `${username} reached ${article} in ${clicks} clicks! 🏆`
+  };
+  fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(response => {
+    if (!response.ok) console.error('Webhook failed:', response.status);
+  }).catch(error => console.error('Webhook error:', error));
+}
+```
+and replace `<your-discord-webhook-api>` withthe actual api of your discord webhook.
+-------
