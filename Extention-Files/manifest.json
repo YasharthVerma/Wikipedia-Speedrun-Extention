@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Wiki Speedrun Tracker",
+  "version": "1.0",
+  "description": "Tracks Wikipedia speedrun clicks with an overlay and sends Discord webhook on reaching target article.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://*.wikipedia.org/*",
+    "https://discord.com/api/webhooks/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.wikipedia.org/wiki/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": {
+    "48": "icon.png"
+  }
+}
